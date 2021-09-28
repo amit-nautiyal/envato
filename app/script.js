@@ -38,7 +38,7 @@ function buildList(items) {
       for (key in item) {
         html += `<div class="card">`;
         if(Math.floor(item.rating) === 5) {
-            html += `<span>Top rated!</span>`;
+            html += `<span class="card__banner">Top rated!</span>`;
         };
         html += `<div class="card__img"><img src='${item.cover_image[3].url}' /></div>`
         html += `<div class="card__title">${item.title}</div>`
