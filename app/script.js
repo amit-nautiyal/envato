@@ -41,12 +41,12 @@ function buildList(items) {
             html += `<span class="card__banner">Top rated!</span>`;
         };
         html += `<div class="card__img"><img src='${item.cover_image[3].url}' /></div>`
-        html += `<div class="card__title">${item.title}</div>`
-        html += `<div class="card__author">by ${item.author}</div>`
-        html += `<div class="card__footer">`
-        html += `<div class="card__ratings">${Math.floor(item.rating)}</div>`
-        html += `<div class="card__action">Remove</div>`
-        html += `</div>`
+        html += `<h3 class="card__title">${item.title}</h3>`
+        html += `<p class="card__author">by <strong>${item.author}</strong></p>`
+        html += `<footer class="card__footer">`
+        html += `<span class="card__ratings">${Math.floor(item.rating)}</span>`
+        html += `<span class="card__action">Remove</span>`
+        html += `</footer>`
         html += '</div>';
       }
     }

@@ -1,16 +1,28 @@
 :root {
     --body: #D9D9D9;
+    --bodyColor: #696969;
     --frame: #EAEAEA;
     --cardBg: #fff;
-  }
+    --titleColor: #3E3E3E;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body, h3, p {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background: var(--body);
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.3;
+    line-height: 1.5;
     padding: 20px;
     margin: auto;
+    color: var(--bodyColor);
 }
 
 .card-holder {
@@ -40,6 +52,14 @@ body {
 
 .card__img img {
     max-width: 100%;
+}
+
+.card__title {
+    color: var(--titleColor);
+}
+
+.card__author {
+    margin: 0;
 }
 
 @media screen and (min-width: 1100px) {
