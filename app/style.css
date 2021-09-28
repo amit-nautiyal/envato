@@ -2,8 +2,10 @@
     --body: #D9D9D9;
     --bodyColor: #696969;
     --frame: #EAEAEA;
-    --cardBg: #fff;
+    --cardBg: #FFF;
     --titleColor: #3E3E3E;
+    --activeStar: #BDA100;
+    --inactiveStar: #CDCDCD;
 }
 
 * {
@@ -62,7 +64,7 @@ body {
     margin-top: 1.5rem;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 }
 
 .card__action {
@@ -79,7 +81,24 @@ body {
     height: 16px;
     width: 16px;
     margin-left: 6px;
-    filter: invert(19%) sepia(87%) saturate(2474%) hue-rotate(359deg) brightness(93%) contrast(116%);
+    filter: invert(19%) sepia(87%) saturate(2474%) hue-rotate(359deg) brightness(93%) contrast(116%); /* https://codepen.io/sosuke/pen/Pjoqqp use this to generate desired color for svgs  */
+}
+
+/* Ratings Stars */
+
+.card__ratings {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: 34px;
+    font-family: Times;
+    line-height: 1;
+}
+.card__ratings::before {
+    content: '★★★★★';
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--activeStar) var(--percent), var(--inactiveStar) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @media screen and (min-width: 1100px) {
