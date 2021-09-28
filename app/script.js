@@ -45,7 +45,7 @@ function buildList(items) {
         html += `<p class="card__author">by <strong>${item.author}</strong></p>`
         html += `<footer class="card__footer">`
         html += `<span class="card__ratings">${Math.floor(item.rating)}</span>`
-        html += `<span class="card__action"><strong>Remove</strong></span>`
+        html += `<span class="card__action"><strong>Remove</strong><img class="icon" src="../_assets/remove.svg" alt='remove item' /></span>`
         html += `</footer>`
         html += '</div>';
       }

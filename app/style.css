@@ -66,7 +66,20 @@ body {
 }
 
 .card__action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.card__action strong {
     text-transform: uppercase;
+}
+
+.card__action .icon {
+    height: 16px;
+    width: 16px;
+    margin-left: 6px;
+    filter: invert(19%) sepia(87%) saturate(2474%) hue-rotate(359deg) brightness(93%) contrast(116%);
 }
 
 @media screen and (min-width: 1100px) {
