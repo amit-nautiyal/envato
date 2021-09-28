@@ -12,7 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // This is the JSON from our response
         console.log(data);
         console.log('data------', data);
-        root.innerHTML = buildList(data);
+
+        // sort data from highest to lowest rating
+        let sortedData = sortBasedOnRatings(data);
+        console.log('sortedData------', sortedData);
+
+        root.innerHTML = buildList(sortedData);
         
     }).catch(function (err) {
         // There was an error
@@ -20,9 +25,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+function sortBasedOnRatings(data) {
+    let sorted = data.items.sort(function(a, b){
+        return b.rating - a.rating;
+    });
+    return sorted;
+}
+
 function buildList(items) {
     let html = ''
-    for (item of items.items) {
+    for (item of items) {
       for (key in item) {
         html += '<div class="card">';
         html += `<div class="card__img"><img src='${item.cover_image[3].url}' /></div>`
