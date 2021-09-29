@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // sort data from highest to lowest rating
         let sortedData = sortBasedOnRatings(data);
         console.log('sortedData------', sortedData);
-
-        root.innerHTML = buildList(sortedData);
+        if(root) {
+            root.innerHTML = buildList(sortedData);
+        }
         
     }).catch(function (err) {
         // There was an error
