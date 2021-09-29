@@ -3,8 +3,10 @@
   <head>
     <meta charset='utf-8'>
     <title>Test Runner</title>
+    <link rel='stylesheet' href='style.css' />
   </head>
   <body>
+    <main id="testRoot" class="card-holder"></main>
     <script src='script.js'></script>
     <script src="https://unpkg.com/expect@1/umd/expect.min.js"></script>
     <script>
@@ -92,7 +94,27 @@
         expect(htmlBuild).toBeA('string');
       }
       catch(error) {
-        console.error("3",error);
+        console.error("Error converting data into string",error);
+      }
+
+      let root = document.getElementById('testRoot');
+      root.innerHTML = htmlBuild;
+
+      // Test to check if HTML is populated for each item from sortedTestdata
+      let cards = document.querySelectorAll('.card');
+      try {
+        expect(cards.length).toEqual(3);
+      }
+      catch(error) {
+        console.error("Some issue with creating HTMl with data",error);
+      }
+
+      // Test to confrim that first card has a rating of "5"
+      try {
+        expect(cards[0].querySelector('.card__ratings').getAttribute('aria-label')).toBe('Rating of this product is 5 out of 5.');
+      }
+      catch(error) {
+        console.error("First card does not have rating of 5",error);
       }
 
 
