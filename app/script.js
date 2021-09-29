@@ -14,11 +14,10 @@ function fetchedData() {
         }
     }).then(function (data) {
         // This is the JSON from our response
-        console.log('data------', data);
 
         // sort data from highest to lowest rating
         let sortedData = sortBasedOnRatings(data);
-        console.log('sortedData------', sortedData);
+
         let root = document.querySelector('#root');
         if(root) {
             root.innerHTML = buildList(sortedData);
