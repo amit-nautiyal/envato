@@ -6,6 +6,7 @@
     --titleColor: #3E3E3E;
     --activeStar: #BDA100;
     --inactiveStar: #CDCDCD;
+    --bannerBg: #BDA100;
 }
 
 * {
@@ -52,8 +53,15 @@ body {
 
 .card__banner {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
+    color: #fff;
+    background-color: var(--bannerBg);
+    padding: .25rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: none;
 }
 
 .card__img img {
@@ -111,6 +119,9 @@ body {
 }
 
 @media screen and (min-width: 1100px) {
+    .card__banner {
+        display: block;
+    }
     .card-holder {
         padding: 3rem;
         grid-template-columns: 1fr 1fr 1fr;

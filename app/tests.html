@@ -11,7 +11,16 @@
       // Tests
       // Failing tests can be seen in your browser console
       // See the expect 1.x documentation here: https://github.com/mjackson/expect#expect1x-documentation
-      expect(false).toBe(true)
+      //expect(false).toBe(true);
+      const can = {
+        ounces: 12,
+        name: 'pamplemousse',
+      };
+      expect(can.ounces).toBe(12);
+      expect(can.name).toBe('pamplemousse');
+
+      //expect('null').toNotExist()
+      //expect('2').toBeA('number')
     </script>
   </body>
 </html>
