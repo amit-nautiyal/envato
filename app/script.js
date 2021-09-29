@@ -1,7 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let root = document.querySelector('#root');
+const dataUrl ='https://envato.github.io/front-end-coding-test/test.json';
 
-    fetch('https://envato.github.io/front-end-coding-test/test.json').then(function (response) {
+document.addEventListener("DOMContentLoaded", function() {
+    fetchedData();
+});
+
+function fetchedData() {
+    fetch(dataUrl).then(function (response) {
     // The API call was successful!
         if (response.ok) {
             return response.json();
@@ -10,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }).then(function (data) {
         // This is the JSON from our response
-        console.log(data);
         console.log('data------', data);
 
         // sort data from highest to lowest rating
         let sortedData = sortBasedOnRatings(data);
-        console.log('sortedData------', sortedData);
+
+        let root = document.querySelector('#root');
         if(root) {
             root.innerHTML = buildList(sortedData);
         }
@@ -24,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // There was an error
         console.warn('Something went wrong.', err);
     });
-});
+}
 
 function sortBasedOnRatings(data) {
     let sorted = data.items.sort(function(a, b){
