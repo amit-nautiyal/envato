@@ -61,7 +61,7 @@ function buildList(items) {
         html += `<h3 class="card__title">${item.title}</h3>`
         html += `<p class="card__author">by <strong>${item.author}</strong></p>`
         html += `<footer class="card__footer">`
-        html += `<span class="card__ratings" style="--rating: ${Math.floor(item.rating)};" aria-label="Rating of this product is ${item.rating} out of 5.">${item.rating}</span>`
+        html += `<span class="card__ratings" style="--rating: ${Math.floor(item.rating)};" aria-label="Rating of this product is ${item.rating} out of 5."></span>`
         html += `<span class="card__action" onclick="removeItem(this)"><strong>Remove</strong><img class="icon" src="../_assets/remove.svg" alt='remove item' /></span>`
         html += `</footer>`
         html += '</div>';

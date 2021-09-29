@@ -124,7 +124,17 @@
         
       }
       catch(error) {
-        console.error("First card with rating of 5 doen not have a 'Top Banner!' element",error);
+        console.error("First card with rating of 5 do not have a 'Top Banner!' element",error);
+      }
+
+      // Test to confrim that Second card that has rating of "4.77" does not have "Top Ratted!" banner
+      try {
+        expect(cards[1].querySelector('.card__ratings').getAttribute('aria-label')).toBe('Rating of this product is 4.77 out of 5.');
+        expect(cards[1].querySelector('.card__banner')).toNotExist();
+        
+      }
+      catch(error) {
+        console.error("Second card with rating of 4.77 have a 'Top Banner!' element",error);
       }
 
       console.log("Tests ended");
