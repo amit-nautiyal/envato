@@ -33,14 +33,24 @@ function sortBasedOnRatings(data) {
 }
 
 function buildList(items) {
-    let html = ''
+    let html = '';
+    let image = '';
     for (item of items) {
       for (key in item) {
         html += `<div class="card">`;
         if(Math.floor(item.rating) === 5) {
             html += `<span class="card__banner">Top rated!</span>`;
         };
-        html += `<div class="card__img"><img src='${item.cover_image[3].url}' /></div>`
+        html += `<div class="card__img">
+                    <picture>
+                        <source media="(max-width: 700px)" srcset="${item.cover_image[2].url} 400w">
+                        <source media="(max-width: 1300px)" srcset="${item.cover_image[1].url} 300w">
+                        <source media="(max-width: 1600px)" srcset="${item.cover_image[2].url} 400w">
+                        <source media="(max-width: 1800px)" srcset="${item.cover_image[3].url} 500w">
+                        <source media="(max-width: 2500px)" srcset="${item.cover_image[4].url} 600w">
+                        <img src="${item.cover_image[1].url} 300w" alt="a placeholder image" />
+                    </picture>
+                </div>`
         html += `<h3 class="card__title">${item.title}</h3>`
         html += `<p class="card__author">by <strong>${item.author}</strong></p>`
         html += `<footer class="card__footer">`
