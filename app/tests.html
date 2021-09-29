@@ -117,6 +117,15 @@
         console.error("First card does not have rating of 5",error);
       }
 
+      // Test to confrim that first card that has rating of "5" also have "Top Ratted!" banner
+      try {
+        expect(cards[0].querySelector('.card__ratings').getAttribute('aria-label')).toBe('Rating of this product is 5 out of 5.');
+        expect(cards[0].querySelector('.card__banner')).toExist();
+        
+      }
+      catch(error) {
+        console.error("First card with rating of 5 doen not have a 'Top Banner!' element",error);
+      }
 
       console.log("Tests ended");
     </script>
