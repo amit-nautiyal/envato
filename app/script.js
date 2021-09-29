@@ -18,7 +18,7 @@ function fetchedData() {
 
         // sort data from highest to lowest rating
         let sortedData = sortBasedOnRatings(data);
-
+        console.log('sortedData------', sortedData);
         let root = document.querySelector('#root');
         if(root) {
             root.innerHTML = buildList(sortedData);
@@ -43,9 +43,7 @@ function removeItem(ele) {
 
 function buildList(items) {
     let html = '';
-    let image = '';
     for (item of items) {
-      for (key in item) {
         html += `<div class="card">`;
         if(Math.floor(item.rating) === 5) {
             html += `<span class="card__banner">Top rated!</span>`;
@@ -67,7 +65,6 @@ function buildList(items) {
         html += `<span class="card__action" onclick="removeItem(this)"><strong>Remove</strong><img class="icon" src="../_assets/remove.svg" alt='remove item' /></span>`
         html += `</footer>`
         html += '</div>';
-      }
     }
     return html;
   }

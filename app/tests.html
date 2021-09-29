@@ -77,6 +77,25 @@
         console.error("wrong url",error);
       }
 
+      // Test to check if sorting based on ratings is working
+      let sortedTestdata = sortBasedOnRatings(testdata);
+      try {
+        expect(testdata.items[0].rating).toBe('5');
+      }
+      catch(error) {
+        console.error("Sorting is not workind, first element should have '5' rating after sorting",error);
+      }
+      
+      // Test to check if data is converted in string using buildList function
+      let htmlBuild = buildList(sortedTestdata);
+      try {
+        expect(htmlBuild).toBeA('string');
+      }
+      catch(error) {
+        console.error("3",error);
+      }
+
+
       console.log("Tests ended");
     </script>
   </body>
