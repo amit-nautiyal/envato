@@ -46,6 +46,10 @@ body {
     position: relative;
 }
 
+.card.hide {
+    display: none;
+}
+
 .card__banner {
     position: absolute;
     top: 20px;
@@ -61,7 +65,7 @@ body {
 }
 
 .card__footer {
-    margin-top: 1.5rem;
+    margin-top: 1.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,6 +75,11 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    cursor: pointer;
+}
+
+.card__action:hover {
+    opacity: 0.8;
 }
 
 .card__action strong {
